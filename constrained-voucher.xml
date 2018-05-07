@@ -256,6 +256,8 @@ module: ietf-cwt-voucher-request
        +---- last-renewal-date?
        |       yang:date-and-time
        +---- proximity-registrar-subject-public-key-info?   binary
+       +---- join-process?
+               enumeration
 ]]></artwork>
 </figure></t>
 
@@ -277,11 +279,13 @@ module: ietf-cwt-voucher-request
   1001157 data .../domain-cert-revocation-checks
   1001158 data .../expires-on
   1001159 data .../idevid-issuer
+  1001165 data .../join-process
   1001160 data .../last-renewal-date
   1001161 data .../nonce
   1001162 data .../pinned-domain-cert
   1001163 data .../proximity-registrar-subject-public-key-info
   1001164 data .../serial-number
+           
 ]]></artwork>
 </figure></t>
 
@@ -292,14 +296,21 @@ module: ietf-cwt-voucher-request
 
 <t><figure>
 <artwork><![CDATA[
-<CODE BEGINS> file "ietf-cwt-voucher-request@2018-02-07.yang"
-/* -*- c -*- */
+<CODE BEGINS> file "ietf-cwt-voucher-request@2017-12-11.yang"
 module ietf-cwt-voucher-request {
   yang-version 1.1;
 
   namespace
     "urn:ietf:params:xml:ns:yang:ietf-cwt-voucher-request";
   prefix "vcwt";
+
+  import ietf-restconf {
+    prefix rc;
+    description
+      "This import statement is only present to access
+       the yang-data extension defined in RFC 8040.";
+    reference "RFC 8040: RESTCONF Protocol";
+  }
 
   import ietf-voucher {
     prefix "v";
@@ -331,11 +342,16 @@ module ietf-cwt-voucher-request {
     'SHOULD', 'SHOULD NOT', 'RECOMMENDED', 'MAY', and 'OPTIONAL' in
     the module text are to be interpreted as described in RFC 2119.";
 
-  revision "2018-02-07" {
+  revision "2018-03-12" {
     description
      "Initial version";
     reference
      "RFC XXXX: Voucher Profile for Constrained Devices";
+  }
+
+  rc:yang-data voucher-request-cwt-artifact {
+    // YANG data template for a voucher.
+    uses voucher-request-cwt-grouping;
   }
 
   // Grouping defined for future usage
@@ -350,22 +366,41 @@ module ietf-cwt-voucher-request {
           type binary;
           description
             "The proximity-registrar-subject-public-key-info replaces
-         the proximit-registrar-cert in constrained uses of
-         the voucher-request.
-         The proximity-registrar-subject-public-key-info is the
-         Raw Public Key of the Registrar. This field is encoded
-         as specified in RFC7250, section 3.
-         The ECDSA algorithm MUST be supported.
-         The EdDSA algorithm as specified in
-         draft-ietf-tls-rfc4492bis-17 SHOULD be supported.
-         Support for the DSA algorithm is not recommended.
-         Support for the RSA algorithm is a MAY.";
+ 	     the proximit-registrar-cert in constrained uses of
+             the voucher-request.
+             The proximity-registrar-subject-public-key-info is the
+             Raw Public Key of the Registrar. This field is encoded
+             as specified in RFC7250, section 3.
+             The ECDSA algorithm MUST be supported.
+             The EdDSA algorithm as specified in
+             draft-ietf-tls-rfc4492bis-17 SHOULD be supported.
+             Support for the DSA algorithm is not recommended.
+             Support for the RSA algorithm is a MAY.";
+        }
+
+        leaf join-process {
+          type enumeration {
+            enum minimal {
+   	      value 1;
+              description "Indicates that a minimal 6tisch join
+                           will follow the creation of the enrollment
+                           channel";
+            }
+            enum pki {
+	      value 2;
+              description "Indicates that an RFC7030 EST enrollment
+                           will follow the creation of the enrollment
+                           channel";
+            }
+          }
+          description
+            "What to do in a secure join process after the creation
+             of the secure channel";
         }
       }
     }
   }
-}
-<CODE ENDS>
+}<CODE ENDS>
 ]]></artwork>
 </figure></t>
 
@@ -443,14 +478,21 @@ module: ietf-cwt-voucher
 
 <t><figure>
 <artwork><![CDATA[
-<CODE BEGINS> file "ietf-cwt-voucher@2018-02-07.yang"
-/* -*- c -*- */
+<CODE BEGINS> file "ietf-cwt-voucher@2017-12-11.yang"
 module ietf-cwt-voucher {
   yang-version 1.1;
 
   namespace
     "urn:ietf:params:xml:ns:yang:ietf-cwt-voucher";
   prefix "vcwt";
+
+  import ietf-restconf {
+    prefix rc;
+    description
+      "This import statement is only present to access
+       the yang-data extension defined in RFC 8040.";
+    reference "RFC 8040: RESTCONF Protocol";
+  }
 
   import ietf-voucher {
     prefix "v";
@@ -482,13 +524,18 @@ module ietf-cwt-voucher {
     'SHOULD', 'SHOULD NOT', 'RECOMMENDED', 'MAY', and 'OPTIONAL' in
     the module text are to be interpreted as described in RFC 2119.";
 
-  revision "2018-02-07" {
+  revision "2018-03-12" {
     description
      "Initial version";
     reference
      "RFC XXXX: Voucher Profile for Constrained Devices";
   }
 
+  rc:yang-data voucher-cwt-artifact {
+    // YANG data template for a voucher.
+    uses voucher-cwt-grouping;
+  }
+  
   // Grouping defined for future usage
   grouping voucher-cwt-grouping {
     description
@@ -501,21 +548,20 @@ module ietf-cwt-voucher {
           type binary;
           description
             "The pinned-domain-subject replaces the
-         pinned-domain-certificate in constrained uses of
-         the voucher.  The pinned-domain-public-key-info is the
-         Raw Public Key of the Registrar. This field is encoded
-         as specified in RFC7250, section 3.
-         The ECDSA algorithm MUST be supported.
-         The EdDSA algorithm as specified in
-         draft-ietf-tls-rfc4492bis-17 SHOULD be supported.
-         Support for the DSA algorithm is not recommended.
-         Support for the RSA algorithm is a MAY.";
+             pinned-domain-certificate in constrained uses of
+             the voucher.  The pinned-domain-public-key-info is the
+             Raw Public Key of the Registrar. This field is encoded
+             as specified in RFC7250, section 3.
+             The ECDSA algorithm MUST be supported.
+             The EdDSA algorithm as specified in
+             draft-ietf-tls-rfc4492bis-17 SHOULD be supported.
+             Support for the DSA algorithm is not recommended.
+             Support for the RSA algorithm is a MAY.";
         }
       }
     }
   }
-}
-<CODE ENDS>
+}<CODE ENDS>
 ]]></artwork>
 </figure></t>
 
@@ -979,7 +1025,7 @@ Provisional registration? (standards tree only):  NO
   </back>
 
 <!-- ##markdown-source:
-H4sIAKdF8FoAA+1ce3PbyJH/H59iSq46S7UERVIP20ycLC3Ra+1ajxPp3eS2
+H4sIABus8FoAA+1ce3PbyJH/H59iSq46S7UERVIP20ycLC3Ra+1ajxPp3eS2
 XFsgMBIRgQCDASQrjvPZ8+ueBwYUJSvavau7ujCVNYmZ6enpd/c0FIZhUKVV
 JofioMhVVUZpLhPxY1HHc1mKUVmlF1FcKXFRlOJNUVQ0ZblM80txVhZVEReZ
 CqLZrJTXayGoICniPFoAflJGF1VYpvE8KhNV5GGUp4sojGIZxs3C8FovDHu7

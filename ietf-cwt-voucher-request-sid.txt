@@ -11,8 +11,10 @@
   1001157 data .../domain-cert-revocation-checks
   1001158 data .../expires-on
   1001159 data .../idevid-issuer
+  1001165 data .../join-process
   1001160 data .../last-renewal-date
   1001161 data .../nonce
   1001162 data .../pinned-domain-cert
   1001163 data .../proximity-registrar-subject-public-key-info
   1001164 data .../serial-number
+           

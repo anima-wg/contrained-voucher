@@ -54,7 +54,7 @@ module ietf-cwt-voucher-request {
     // YANG data template for a voucher.
     uses voucher-request-cwt-grouping;
   }
-  
+
   // Grouping defined for future usage
   grouping voucher-request-cwt-grouping {
     description
@@ -66,7 +66,7 @@ module ietf-cwt-voucher-request {
         leaf proximity-registrar-subject-public-key-info {
           type binary;
           description
-            "The proximity-registrar-subject-public-key-info replaces 
+            "The proximity-registrar-subject-public-key-info replaces
  	     the proximit-registrar-cert in constrained uses of
              the voucher-request.
              The proximity-registrar-subject-public-key-info is the
@@ -77,6 +77,26 @@ module ietf-cwt-voucher-request {
              draft-ietf-tls-rfc4492bis-17 SHOULD be supported.
              Support for the DSA algorithm is not recommended.
              Support for the RSA algorithm is a MAY.";
+        }
+
+        leaf join-process {
+          type enumeration {
+            enum minimal {
+   	      value 1;
+              description "Indicates that a minimal 6tisch join
+                           will follow the creation of the enrollment
+                           channel";
+            }
+            enum pki {
+	      value 2;
+              description "Indicates that an RFC7030 EST enrollment
+                           will follow the creation of the enrollment
+                           channel";
+            }
+          }
+          description
+            "What to do in a secure join process after the creation
+             of the secure channel";
         }
       }
     }
