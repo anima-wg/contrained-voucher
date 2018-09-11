@@ -35,7 +35,7 @@ Status of This Memo
    Internet-Drafts are working documents of the Internet Engineering
    Task Force (IETF).  Note that other groups may also distribute
    working documents as Internet-Drafts.  The list of current Internet-
-   Drafts is at http://datatracker.ietf.org/drafts/current/.
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
 
    Internet-Drafts are draft documents valid for a maximum of six months
    and may be updated, replaced, or obsoleted by other documents at any
@@ -60,7 +60,7 @@ Internet-Draft            Constrained Vouchers            September 2018
 
    This document is subject to BCP 78 and the IETF Trust's Legal
    Provisions Relating to IETF Documents
-   (http://trustee.ietf.org/license-info) in effect on the date of
+   (https://trustee.ietf.org/license-info) in effect on the date of
    publication of this document.  Please review these documents
    carefully, as they describe your rights and restrictions with respect
    to this document.  Code Components extracted from this document must
@@ -74,38 +74,38 @@ Table of Contents
    2.  Terminology . . . . . . . . . . . . . . . . . . . . . . . . .   4
    3.  Requirements Language . . . . . . . . . . . . . . . . . . . .   4
    4.  Survey of Voucher Types . . . . . . . . . . . . . . . . . . .   4
-   5.  Discovery and URI . . . . . . . . . . . . . . . . . . . . . .   4
+   5.  Discovery and URI . . . . . . . . . . . . . . . . . . . . . .   5
    6.  Artifacts . . . . . . . . . . . . . . . . . . . . . . . . . .   6
-     6.1.  Voucher Request artifact  . . . . . . . . . . . . . . . .   6
-       6.1.1.  Tree Diagram  . . . . . . . . . . . . . . . . . . . .   6
+     6.1.  Voucher Request artifact  . . . . . . . . . . . . . . . .   7
+       6.1.1.  Tree Diagram  . . . . . . . . . . . . . . . . . . . .   7
        6.1.2.  SID values  . . . . . . . . . . . . . . . . . . . . .   7
-       6.1.3.  YANG Module . . . . . . . . . . . . . . . . . . . . .   7
+       6.1.3.  YANG Module . . . . . . . . . . . . . . . . . . . . .   8
        6.1.4.  Example voucher request artifact  . . . . . . . . . .  11
-     6.2.  Voucher artifact  . . . . . . . . . . . . . . . . . . . .  11
-       6.2.1.  Tree Diagram  . . . . . . . . . . . . . . . . . . . .  11
-       6.2.2.  SID values  . . . . . . . . . . . . . . . . . . . . .  12
-       6.2.3.  YANG Module . . . . . . . . . . . . . . . . . . . . .  12
-       6.2.4.  Example voucher artifacts . . . . . . . . . . . . . .  14
-     6.3.  CMS format voucher and voucher-request artifacts  . . . .  15
-       6.3.1.  COSE signing  . . . . . . . . . . . . . . . . . . . .  16
-   7.  Design Considerations . . . . . . . . . . . . . . . . . . . .  16
+     6.2.  Voucher artifact  . . . . . . . . . . . . . . . . . . . .  12
+       6.2.1.  Tree Diagram  . . . . . . . . . . . . . . . . . . . .  12
+       6.2.2.  SID values  . . . . . . . . . . . . . . . . . . . . .  13
+       6.2.3.  YANG Module . . . . . . . . . . . . . . . . . . . . .  13
+       6.2.4.  Example voucher artifacts . . . . . . . . . . . . . .  15
+     6.3.  CMS format voucher and voucher-request artifacts  . . . .  16
+       6.3.1.  COSE signing  . . . . . . . . . . . . . . . . . . . .  17
+   7.  Design Considerations . . . . . . . . . . . . . . . . . . . .  17
    8.  Security Considerations . . . . . . . . . . . . . . . . . . .  17
      8.1.  Clock Sensitivity . . . . . . . . . . . . . . . . . . . .  17
      8.2.  Protect Voucher PKI in HSM  . . . . . . . . . . . . . . .  17
-     8.3.  Test Domain Certificate Validity when Signing . . . . . .  17
-   9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  17
-     9.1.  Resource Type Registry  . . . . . . . . . . . . . . . . .  17
-     9.2.  The IETF XML Registry . . . . . . . . . . . . . . . . . .  17
-     9.3.  The YANG Module Names Registry  . . . . . . . . . . . . .  17
-     9.4.  The SMI Security for S/MIME CMS Content Type Registry . .  18
-     9.5.  The SID registry  . . . . . . . . . . . . . . . . . . . .  18
-     9.6.  Media-Type Registry . . . . . . . . . . . . . . . . . . .  18
-       9.6.1.  application/voucher-cms+cbor  . . . . . . . . . . . .  18
-       9.6.2.  application/voucher-cose+cbor . . . . . . . . . . . .  19
-     9.7.  CoAP Content-Format Registry  . . . . . . . . . . . . . .  19
-   10. Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  20
-   11. Changelog . . . . . . . . . . . . . . . . . . . . . . . . . .  20
-   12. References  . . . . . . . . . . . . . . . . . . . . . . . . .  20
+     8.3.  Test Domain Certificate Validity when Signing . . . . . .  18
+   9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  18
+     9.1.  Resource Type Registry  . . . . . . . . . . . . . . . . .  18
+     9.2.  The IETF XML Registry . . . . . . . . . . . . . . . . . .  18
+     9.3.  The YANG Module Names Registry  . . . . . . . . . . . . .  18
+     9.4.  The SMI Security for S/MIME CMS Content Type Registry . .  19
+     9.5.  The SID registry  . . . . . . . . . . . . . . . . . . . .  19
+     9.6.  Media-Type Registry . . . . . . . . . . . . . . . . . . .  19
+       9.6.1.  application/voucher-cms+cbor  . . . . . . . . . . . .  19
+       9.6.2.  application/voucher-cose+cbor . . . . . . . . . . . .  20
+     9.7.  CoAP Content-Format Registry  . . . . . . . . . . . . . .  21
+   10. Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  21
+   11. Changelog . . . . . . . . . . . . . . . . . . . . . . . . . .  22
+   12. References  . . . . . . . . . . . . . . . . . . . . . . . . .  22
 
 
 
@@ -114,16 +114,16 @@ Richardson, et al.       Expires March 15, 2019                 [Page 2]
 Internet-Draft            Constrained Vouchers            September 2018
 
 
-     12.1.  Normative References . . . . . . . . . . . . . . . . . .  20
-     12.2.  Informative References . . . . . . . . . . . . . . . . .  22
-   Appendix A.  EST messages to EST-coaps  . . . . . . . . . . . . .  22
-     A.1.  enrollstatus  . . . . . . . . . . . . . . . . . . . . . .  22
-     A.2.  voucher_status  . . . . . . . . . . . . . . . . . . . . .  23
-     A.3.  requestvoucher  . . . . . . . . . . . . . . . . . . . . .  24
-       A.3.1.  signed requestvoucher . . . . . . . . . . . . . . . .  24
-       A.3.2.  unsigned requestvoucher . . . . . . . . . . . . . . .  24
-     A.4.  requestauditing . . . . . . . . . . . . . . . . . . . . .  24
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  25
+     12.1.  Normative References . . . . . . . . . . . . . . . . . .  22
+     12.2.  Informative References . . . . . . . . . . . . . . . . .  23
+   Appendix A.  EST messages to EST-coaps  . . . . . . . . . . . . .  24
+     A.1.  enrollstatus  . . . . . . . . . . . . . . . . . . . . . .  24
+     A.2.  voucher_status  . . . . . . . . . . . . . . . . . . . . .  25
+     A.3.  requestvoucher  . . . . . . . . . . . . . . . . . . . . .  26
+       A.3.1.  signed requestvoucher . . . . . . . . . . . . . . . .  26
+       A.3.2.  unsigned requestvoucher . . . . . . . . . . . . . . .  26
+     A.4.  requestauditing . . . . . . . . . . . . . . . . . . . . .  26
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  27
 
 1.  Introduction
 
@@ -208,6 +208,27 @@ Internet-Draft            Constrained Vouchers            September 2018
    followed by voucher response as this is the time order that they
    occur.
 
+   This document defines both CMS-signed voucher requests and responses,
+   and COSE signed voucher requests and responses.  The use of CMS
+   signatures implies the use of PKIX format certificates.  The pinned-
+   domain-cert present in such a voucher, is the certificate of the
+   Registrar.
+
+   The use of COSE signatures permits the use of both PKIX format
+   certificates, and also raw public keys (RPK).  When RPKs are used,
+   the voucher produced by the MASA pins the raw public key of the
+   Registrar: the pinned-domain-subject-public-key-info in such a
+
+
+
+Richardson, et al.       Expires March 15, 2019                 [Page 4]
+
+Internet-Draft            Constrained Vouchers            September 2018
+
+
+   voucher, is the raw public key of the Registrar.  This is described
+   in the YANG definition for the constrained voucher.
+
 5.  Discovery and URI
 
    This section describes the BRSKI extensions to EST-coaps
@@ -218,14 +239,6 @@ Internet-Draft            Constrained Vouchers            September 2018
 
    The presence and location of (path to) the management data are
    discovered by sending a GET request to "/.well-known/core" including
-
-
-
-Richardson, et al.       Expires March 15, 2019                 [Page 4]
-
-Internet-Draft            Constrained Vouchers            September 2018
-
-
    a resource type (RT) parameter with the value "ace.est" [RFC6690].
    Upon success, the return payload will contain the root resource of
    the EST resources.  It is up to the implementation to choose its root
@@ -241,7 +254,7 @@ Internet-Draft            Constrained Vouchers            September 2018
    The EST-coaps server URIs differ from the EST URI by replacing the
    scheme https by coaps and by specifying shorter resource path names:
 
-   coaps://www.example.com/est/short-name
+     coaps://www.example.com/est/short-name
 
    Figure 5 in section 3.2.2 of [RFC7030] enumerates the operations and
    corresponding paths which are supported by EST.  Table 1 provides the
@@ -261,6 +274,14 @@ Internet-Draft            Constrained Vouchers            September 2018
 
                    Table 1: BRSKI path to EST-coaps path
 
+
+
+
+Richardson, et al.       Expires March 15, 2019                 [Page 5]
+
+Internet-Draft            Constrained Vouchers            September 2018
+
+
    /requestvoucher and /enrollstatus are needed between pledge and
    Registrar.
 
@@ -274,14 +295,6 @@ Internet-Draft            Constrained Vouchers            September 2018
 
      RES: 2.05 Content
      </est>; rt="ace.est"
-
-
-
-Richardson, et al.       Expires March 15, 2019                 [Page 5]
-
-Internet-Draft            Constrained Vouchers            September 2018
-
-
      </est/rv>; rt="ace.est/rv";ct=50 60 TBD2 TBD3 16
      </est/vs>; rt="ace.est/vs";ct=50 60
      </est/es>; rt="ace.est/es";ct=50 60
@@ -314,6 +327,17 @@ Internet-Draft            Constrained Vouchers            September 2018
    using the rules in [I-D.ietf-core-yang-cbor], with an allocation that
    was made via the http://comi.space service.
 
+
+
+
+
+
+
+Richardson, et al.       Expires March 15, 2019                 [Page 6]
+
+Internet-Draft            Constrained Vouchers            September 2018
+
+
 6.1.  Voucher Request artifact
 
 6.1.1.  Tree Diagram
@@ -330,14 +354,6 @@ Internet-Draft            Constrained Vouchers            September 2018
 
      grouping voucher-request-constrained-grouping
        +-- voucher
-
-
-
-Richardson, et al.       Expires March 15, 2019                 [Page 6]
-
-Internet-Draft            Constrained Vouchers            September 2018
-
-
           +-- created-on?
           |       yang:date-and-time
           +-- expires-on?
@@ -357,22 +373,42 @@ Internet-Draft            Constrained Vouchers            September 2018
 6.1.2.  SID values
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Richardson, et al.       Expires March 15, 2019                 [Page 7]
+
+Internet-Draft            Constrained Vouchers            September 2018
+
+
          SID Assigned to
    --------- --------------------------------------------------
-     1001100 module ietf-constrained-voucher-request
-     1001101 data /ietf-constrained-voucher-request:voucher
-     1001102 data .../assertion
-     1001103 data .../created-on
-     1001104 data .../domain-cert-revocation-checks
-     1001105 data .../expires-on
-     1001106 data .../idevid-issuer
-     1001107 data .../last-renewal-date
-     1001108 data /ietf-constrained-voucher-request:voucher/nonce
-     1001109 data .../pinned-domain-cert
-     1001110 data .../prior-signed-voucher-request
-     1001111 data .../proximity-registrar-cert
-     1001112 data .../proximity-registrar-subject-public-key-info
-     1001113 data .../serial-number
+     1001154 data /ietf-constrained-voucher-request:voucher
+     1001155 data .../assertion
+     1001156 data .../created-on
+     1001157 data .../domain-cert-revocation-checks
+     1001158 data .../expires-on
+     1001159 data .../idevid-issuer
+     1001160 data .../last-renewal-date
+     1001161 data /ietf-constrained-voucher-request:voucher/nonce
+     1001162 data .../pinned-domain-cert
+     1001163 data .../prior-signed-voucher-request
+     1001164 data .../proximity-registrar-cert
+     1001165 data .../proximity-registrar-subject-public-key-info
+     1001166 data .../serial-number
 
 
 6.1.3.  YANG Module
@@ -386,14 +422,6 @@ Internet-Draft            Constrained Vouchers            September 2018
 
    <CODE BEGINS> file "ietf-constrained-voucher-request@2018-09-01.yang"
    module ietf-constrained-voucher-request {
-
-
-
-Richardson, et al.       Expires March 15, 2019                 [Page 7]
-
-Internet-Draft            Constrained Vouchers            September 2018
-
-
      yang-version 1.1;
 
      namespace
@@ -414,6 +442,13 @@ Internet-Draft            Constrained Vouchers            September 2018
 
      organization
       "IETF ANIMA Working Group";
+
+
+
+Richardson, et al.       Expires March 15, 2019                 [Page 8]
+
+Internet-Draft            Constrained Vouchers            September 2018
+
 
      contact
       "WG Web:   <http://tools.ietf.org/wg/anima/>
@@ -443,13 +478,6 @@ Internet-Draft            Constrained Vouchers            September 2018
        clocks can be assumed, and that the Registrar is identified
        by a pinned Raw Public Key.
 
-
-
-Richardson, et al.       Expires March 15, 2019                 [Page 8]
-
-Internet-Draft            Constrained Vouchers            September 2018
-
-
        The key words 'MUST', 'MUST NOT', 'REQUIRED', 'SHALL',
        'SHALL NOT', 'SHOULD', 'SHOULD NOT', 'RECOMMENDED', 'MAY',
        and 'OPTIONAL' in the module text are to be interpreted as
@@ -470,6 +498,14 @@ Internet-Draft            Constrained Vouchers            September 2018
      // Grouping defined for future usage
      grouping voucher-request-constrained-grouping {
        description
+
+
+
+Richardson, et al.       Expires March 15, 2019                 [Page 9]
+
+Internet-Draft            Constrained Vouchers            September 2018
+
+
          "Grouping to allow reuse/extensions in future work.";
 
        uses v:voucher-artifact-grouping {
@@ -491,21 +527,13 @@ Internet-Draft            Constrained Vouchers            September 2018
              type binary;
              description
                "The proximity-registrar-subject-public-key-info replaces
-            the proximit-registrar-cert in constrained uses of
+                the proximit-registrar-cert in constrained uses of
                 the voucher-request.
                 The proximity-registrar-subject-public-key-info is the
                 Raw Public Key of the Registrar. This field is encoded
                 as specified in RFC7250, section 3.
                 The ECDSA algorithm MUST be supported.
                 The EdDSA algorithm as specified in
-
-
-
-Richardson, et al.       Expires March 15, 2019                 [Page 9]
-
-Internet-Draft            Constrained Vouchers            September 2018
-
-
                 draft-ietf-tls-rfc4492bis-17 SHOULD be supported.
                 Support for the DSA algorithm is not recommended.
                 Support for the RSA algorithm is a MAY.";
@@ -525,6 +553,14 @@ Internet-Draft            Constrained Vouchers            September 2018
                 Pledge's voucher request if the proximity assertion is
                 populated.";
            }
+
+
+
+
+Richardson, et al.       Expires March 15, 2019                [Page 10]
+
+Internet-Draft            Constrained Vouchers            September 2018
+
 
            leaf prior-signed-voucher-request {
              type binary;
@@ -554,14 +590,6 @@ Internet-Draft            Constrained Vouchers            September 2018
            }
          }
        }
-
-
-
-Richardson, et al.       Expires March 15, 2019                [Page 10]
-
-Internet-Draft            Constrained Vouchers            September 2018
-
-
      }
    }
    <CODE ENDS>
@@ -572,6 +600,23 @@ Internet-Draft            Constrained Vouchers            September 2018
    shown in diagnostic CBOR notation.  The enum value of the assertion
    field is calculated to be zero by following the algorithm described
    in section 9.6.4.2 of [RFC7950].
+
+
+
+
+
+
+
+
+
+
+
+
+
+Richardson, et al.       Expires March 15, 2019                [Page 11]
+
+Internet-Draft            Constrained Vouchers            September 2018
+
 
    {
      1001101: {
@@ -606,49 +651,45 @@ Internet-Draft            Constrained Vouchers            September 2018
    [RFC8366], with only the addition of pinned-domain-subject-public-
    key-info.
 
-   module: ietf-constrained-voucher
+  module: ietf-constrained-voucher
 
-     grouping voucher-constrained-grouping
-       +-- voucher
+    grouping voucher-constrained-grouping
+      +-- voucher
+         +-- created-on?                              yang:date-and-time
+         +-- expires-on?                              yang:date-and-time
+         +-- assertion                                enumeration
+         +-- serial-number                            string
+         +-- idevid-issuer?                           binary
+         +-- pinned-domain-cert?                      binary
+         +-- domain-cert-revocation-checks?           boolean
+         +-- nonce?                                   binary
+         +-- last-renewal-date?                       yang:date-and-time
+         +-- pinned-domain-subject-public-key-info?   binary
 
 
 
-Richardson, et al.       Expires March 15, 2019                [Page 11]
+
+Richardson, et al.       Expires March 15, 2019                [Page 12]
 
 Internet-Draft            Constrained Vouchers            September 2018
 
-
-          +-- created-on?
-          |       yang:date-and-time
-          +-- expires-on?
-          |       yang:date-and-time
-          +-- assertion                                enumeration
-          +-- serial-number                            string
-          +-- idevid-issuer?                           binary
-          +-- pinned-domain-cert?                      binary
-          +-- domain-cert-revocation-checks?           boolean
-          +-- nonce?                                   binary
-          +-- last-renewal-date?
-          |       yang:date-and-time
-          +-- pinned-domain-subject-public-key-info?   binary
 
 6.2.2.  SID values
 
 
          SID Assigned to
    --------- --------------------------------------------------
-     1001050 module ietf-constrained-voucher
-     1001051 data /ietf-constrained-voucher:voucher
-     1001052 data /ietf-constrained-voucher:voucher/assertion
-     1001053 data /ietf-constrained-voucher:voucher/created-on
-     1001054 data .../domain-cert-revocation-checks
-     1001055 data /ietf-constrained-voucher:voucher/expires-on
-     1001056 data /ietf-constrained-voucher:voucher/idevid-issuer
-     1001057 data .../last-renewal-date
-     1001058 data /ietf-constrained-voucher:voucher/nonce
-     1001059 data .../pinned-domain-cert
-     1001060 data .../pinned-domain-subject-public-key-info
-     1001061 data /ietf-constrained-voucher:voucher/serial-number
+     1001104 data .../voucher
+     1001105 data .../assertion
+     1001106 data .../created-on
+     1001107 data .../domain-cert-revocation-checks
+     1001108 data .../expires-on
+     1001109 data .../idevid-issuer
+     1001110 data .../last-renewal-date
+     1001111 data .../nonce
+     1001112 data .../pinned-domain-cert
+     1001113 data .../pinned-domain-subject-public-key-info
+     1001114 data .../serial-number
 
 
 6.2.3.  YANG Module
@@ -667,13 +708,6 @@ Internet-Draft            Constrained Vouchers            September 2018
        "urn:ietf:params:xml:ns:yang:ietf-constrained-voucher";
      prefix "constrained";
 
-
-
-Richardson, et al.       Expires March 15, 2019                [Page 12]
-
-Internet-Draft            Constrained Vouchers            September 2018
-
-
      import ietf-restconf {
        prefix rc;
        description
@@ -688,6 +722,13 @@ Internet-Draft            Constrained Vouchers            September 2018
 
      organization
       "IETF ANIMA Working Group";
+
+
+
+Richardson, et al.       Expires March 15, 2019                [Page 13]
+
+Internet-Draft            Constrained Vouchers            September 2018
+
 
      contact
       "WG Web:   <http://tools.ietf.org/wg/anima/>
@@ -722,14 +763,6 @@ Internet-Draft            Constrained Vouchers            September 2018
         "Initial version";
        reference
         "RFC XXXX: Voucher Profile for Constrained Devices";
-
-
-
-Richardson, et al.       Expires March 15, 2019                [Page 13]
-
-Internet-Draft            Constrained Vouchers            September 2018
-
-
      }
 
      rc:yang-data voucher-constrained-artifact {
@@ -745,6 +778,14 @@ Internet-Draft            Constrained Vouchers            September 2018
        uses v:voucher-artifact-grouping {
 
          refine voucher/created-on {
+
+
+
+Richardson, et al.       Expires March 15, 2019                [Page 14]
+
+Internet-Draft            Constrained Vouchers            September 2018
+
+
              mandatory  false;
          }
 
@@ -758,8 +799,8 @@ Internet-Draft            Constrained Vouchers            September 2018
            leaf pinned-domain-subject-public-key-info {
              type binary;
              description
-               "The pinned-domain-subject replaces the
-                pinned-domain-certificate in constrained uses of
+               "The pinned-domain-subject-public-key-info replaces the
+                pinned-domain-cert in constrained uses of
                 the voucher. The pinned-domain-subject-public-key-info
                 is the Raw Public Key of the Registrar.
                 This field is encoded as specified in RFC7250,
@@ -778,18 +819,28 @@ Internet-Draft            Constrained Vouchers            September 2018
 
 6.2.4.  Example voucher artifacts
 
-
-
-
-Richardson, et al.       Expires March 15, 2019                [Page 14]
-
-Internet-Draft            Constrained Vouchers            September 2018
-
-
    Below a the CBOR serialization of the the constrained-voucher and
    constrained-voucher-request are shown in diagnostic CBOR notation.
    The enum value of the assertion field is calculated to be zero by
    following the algorithm described in section 9.6.4.2 of [RFC7950].
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Richardson, et al.       Expires March 15, 2019                [Page 15]
+
+Internet-Draft            Constrained Vouchers            September 2018
+
 
    {
      1001051: {
@@ -834,19 +885,18 @@ Internet-Draft            Constrained Vouchers            September 2018
    The considerations of [RFC5652] section 5.1, concerning validating
    CMS objects which are really PKCS7 objects (cmsVersion=1) applies.
 
-
-
-
-Richardson, et al.       Expires March 15, 2019                [Page 15]
-
-Internet-Draft            Constrained Vouchers            September 2018
-
-
    The CMS structure SHOULD also contain all the certificates leading up
    to and including the signer's trust anchor certificate known to the
    recipient.  The inclusion of the trust anchor is unusual in many
    applications, but without it third parties can not accurately audit
    the transaction.
+
+
+
+Richardson, et al.       Expires March 15, 2019                [Page 16]
+
+Internet-Draft            Constrained Vouchers            September 2018
+
 
    The CMS structure MAY also contain revocation objects for any
    intermediate certificate authorities (CAs) between the voucher-issuer
@@ -885,19 +935,6 @@ Internet-Draft            Constrained Vouchers            September 2018
    not have a material effect on the size of the resulting CBOR, as the
    SID translation process assigns integers to the names.
 
-
-
-
-
-
-
-
-
-Richardson, et al.       Expires March 15, 2019                [Page 16]
-
-Internet-Draft            Constrained Vouchers            September 2018
-
-
 8.  Security Considerations
 
 8.1.  Clock Sensitivity
@@ -907,6 +944,15 @@ Internet-Draft            Constrained Vouchers            September 2018
 8.2.  Protect Voucher PKI in HSM
 
    TBD.
+
+
+
+
+
+Richardson, et al.       Expires March 15, 2019                [Page 17]
+
+Internet-Draft            Constrained Vouchers            September 2018
+
 
 8.3.  Test Domain Certificate Validity when Signing
 
@@ -921,10 +967,10 @@ Internet-Draft            Constrained Vouchers            September 2018
    either in the Expert Review range (0-255) or IETF Review range
    (256-9999).
 
-   ace.rt.rv needs registration with IANA
-   ace.rt.vs needs registration with IANA
-   ace.rt.es needs registration with IANA
-   ace.rt.ra needs registration with IANA
+    ace.rt.rv needs registration with IANA
+    ace.rt.vs needs registration with IANA
+    ace.rt.es needs registration with IANA
+    ace.rt.ra needs registration with IANA
 
 9.2.  The IETF XML Registry
 
@@ -946,14 +992,6 @@ Internet-Draft            Constrained Vouchers            September 2018
    registry [RFC6020].  Following the format defined in [RFC6020], the
    the following registration is requested:
 
-
-
-
-Richardson, et al.       Expires March 15, 2019                [Page 17]
-
-Internet-Draft            Constrained Vouchers            September 2018
-
-
      name:         ietf-constrained-voucher
      namespace:    urn:ietf:params:xml:ns:yang:ietf-constrained-voucher
      prefix:       vch
@@ -965,14 +1003,21 @@ Internet-Draft            Constrained Vouchers            September 2018
      prefix:       vch
      reference:    RFC XXXX
 
+
+
+Richardson, et al.       Expires March 15, 2019                [Page 18]
+
+Internet-Draft            Constrained Vouchers            September 2018
+
+
 9.4.  The SMI Security for S/MIME CMS Content Type Registry
 
    This document registers an OID in the "SMI Security for S/MIME CMS
    Content Type" registry (1.2.840.113549.1.9.16.1), with the value:
 
-   Decimal  Description                             References
-   -------  --------------------------------------  ----------
-   TBD1      id-ct-animaCBORVoucher                 [ThisRFC]
+     Decimal  Description                             References
+     -------  --------------------------------------  ----------
+     TBD1      id-ct-animaCBORVoucher                 [ThisRFC]
 
    EDNOTE: should a separate value be used for Voucher Requests?
 
@@ -996,20 +1041,37 @@ Internet-Draft            Constrained Vouchers            September 2018
 
 9.6.1.  application/voucher-cms+cbor
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Richardson, et al.       Expires March 15, 2019                [Page 19]
+
+Internet-Draft            Constrained Vouchers            September 2018
+
+
    Type name:  application
    Subtype name:  voucher-cms+cbor
    Required parameters:  none
    Optional parameters:  none
    Encoding considerations:  CMS-signed CBOR vouchers are CBOR
      encoded.
-
-
-
-Richardson, et al.       Expires March 15, 2019                [Page 18]
-
-Internet-Draft            Constrained Vouchers            September 2018
-
-
    Security considerations:  See Security Considerations, Section
    Interoperability considerations:  The format is designed to be
      broadly interoperable.
@@ -1029,6 +1091,36 @@ Internet-Draft            Constrained Vouchers            September 2018
    Provisional registration? (standards tree only):  NO
 
 9.6.2.  application/voucher-cose+cbor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Richardson, et al.       Expires March 15, 2019                [Page 20]
+
+Internet-Draft            Constrained Vouchers            September 2018
+
 
    Type name:  application
    Subtype name:  voucher-cose+cbor
@@ -1058,14 +1150,6 @@ Internet-Draft            Constrained Vouchers            September 2018
 
    Additions to the sub-registry "CoAP Content-Formats", within the
    "CoRE Parameters" registry are needed for two media types.  These can
-
-
-
-Richardson, et al.       Expires March 15, 2019                [Page 19]
-
-Internet-Draft            Constrained Vouchers            September 2018
-
-
    be registered either in the Expert Review range (0-255) or IETF
    Review range (256-9999).
 
@@ -1084,6 +1168,15 @@ Internet-Draft            Constrained Vouchers            September 2018
    users.
 
    We are grateful for the suggestions done by Esko Dijk.
+
+
+
+
+
+Richardson, et al.       Expires March 15, 2019                [Page 21]
+
+Internet-Draft            Constrained Vouchers            September 2018
+
 
 11.  Changelog
 
@@ -1110,33 +1203,36 @@ Internet-Draft            Constrained Vouchers            September 2018
    [I-D.ietf-ace-coap-est]
               Stok, P., Kampanakis, P., Kumar, S., Richardson, M.,
               Furuhed, M., and S. Raza, "EST over secure CoAP (EST-
-              coaps)", draft-ietf-ace-coap-est-00 (work in progress),
-              February 2018.
+              coaps)", draft-ietf-ace-coap-est-05 (work in progress),
+              July 2018.
 
    [I-D.ietf-anima-bootstrapping-keyinfra]
-
-
-
-Richardson, et al.       Expires March 15, 2019                [Page 20]
-
-Internet-Draft            Constrained Vouchers            September 2018
-
-
               Pritikin, M., Richardson, M., Behringer, M., Bjarnason,
               S., and K. Watsen, "Bootstrapping Remote Secure Key
               Infrastructures (BRSKI)", draft-ietf-anima-bootstrapping-
-              keyinfra-15 (work in progress), April 2018.
+              keyinfra-16 (work in progress), June 2018.
 
    [I-D.ietf-core-object-security]
               Selander, G., Mattsson, J., Palombini, F., and L. Seitz,
               "Object Security for Constrained RESTful Environments
-              (OSCORE)", draft-ietf-core-object-security-12 (work in
-              progress), March 2018.
+              (OSCORE)", draft-ietf-core-object-security-15 (work in
+              progress), August 2018.
 
    [I-D.ietf-core-sid]
               Veillette, M. and A. Pelov, "YANG Schema Item iDentifier
-              (SID)", draft-ietf-core-sid-03 (work in progress),
-              December 2017.
+              (SID)", draft-ietf-core-sid-04 (work in progress), June
+              2018.
+
+
+
+
+
+
+
+Richardson, et al.       Expires March 15, 2019                [Page 22]
+
+Internet-Draft            Constrained Vouchers            September 2018
+
 
    [I-D.ietf-core-yang-cbor]
               Veillette, M., Pelov, A., Somaraju, A., Turner, R., and A.
@@ -1144,14 +1240,19 @@ Internet-Draft            Constrained Vouchers            September 2018
               draft-ietf-core-yang-cbor-06 (work in progress), February
               2018.
 
+   [ieee802-1AR]
+              IEEE Standard, ., "IEEE 802.1AR Secure Device Identifier",
+              2009, <http://standards.ieee.org/findstds/
+              standard/802.1AR-2009.html>.
+
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
-              Requirement Levels", BCP 14, RFC 2119, DOI 10.17487/
-              RFC2119, March 1997, <https://www.rfc-editor.org/info/
-              rfc2119>.
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
 
    [RFC5652]  Housley, R., "Cryptographic Message Syntax (CMS)", STD 70,
-              RFC 5652, DOI 10.17487/RFC5652, September 2009, <https://
-              www.rfc-editor.org/info/rfc5652>.
+              RFC 5652, DOI 10.17487/RFC5652, September 2009,
+              <https://www.rfc-editor.org/info/rfc5652>.
 
    [RFC7049]  Bormann, C. and P. Hoffman, "Concise Binary Object
               Representation (CBOR)", RFC 7049, DOI 10.17487/RFC7049,
@@ -1164,54 +1265,53 @@ Internet-Draft            Constrained Vouchers            September 2018
               June 2014, <https://www.rfc-editor.org/info/rfc7250>.
 
    [RFC7950]  Bjorklund, M., Ed., "The YANG 1.1 Data Modeling Language",
-              RFC 7950, DOI 10.17487/RFC7950, August 2016, <https://www
-              .rfc-editor.org/info/rfc7950>.
+              RFC 7950, DOI 10.17487/RFC7950, August 2016,
+              <https://www.rfc-editor.org/info/rfc7950>.
 
    [RFC8152]  Schaad, J., "CBOR Object Signing and Encryption (COSE)",
-              RFC 8152, DOI 10.17487/RFC8152, July 2017, <https://www
-              .rfc-editor.org/info/rfc8152>.
+              RFC 8152, DOI 10.17487/RFC8152, July 2017,
+              <https://www.rfc-editor.org/info/rfc8152>.
+
+   [RFC8366]  Watsen, K., Richardson, M., Pritikin, M., and T. Eckert,
+              "A Voucher Artifact for Bootstrapping Protocols",
+              RFC 8366, DOI 10.17487/RFC8366, May 2018,
+              <https://www.rfc-editor.org/info/rfc8366>.
+
+12.2.  Informative References
 
 
 
-Richardson, et al.       Expires March 15, 2019                [Page 21]
+
+
+
+
+Richardson, et al.       Expires March 15, 2019                [Page 23]
 
 Internet-Draft            Constrained Vouchers            September 2018
 
 
-   [RFC8366]  Watsen, K., Richardson, M., Pritikin, M., and T. Eckert,
-              "A Voucher Artifact for Bootstrapping Protocols", RFC
-              8366, DOI 10.17487/RFC8366, May 2018, <https://www.rfc-
-              editor.org/info/rfc8366>.
-
-   [ieee802-1AR]
-              IEEE Standard, ., "IEEE 802.1AR Secure Device Identifier",
-              2009, <http://standards.ieee.org/findstds/standard/
-              802.1AR-2009.html>.
-
-12.2.  Informative References
+   [duckling]
+              Stajano, F. and R. Anderson, "The resurrecting duckling:
+              security issues for ad-hoc wireless networks", 1999,
+              <https://www.cl.cam.ac.uk/~fms27/
+              papers/1999-StajanoAnd-duckling.pdf>.
 
    [I-D.ietf-netmod-yang-tree-diagrams]
               Bjorklund, M. and L. Berger, "YANG Tree Diagrams", draft-
               ietf-netmod-yang-tree-diagrams-06 (work in progress),
               February 2018.
 
+   [pledge]   Dictionary.com, ., "Dictionary.com Unabridged", 2015,
+              <http://dictionary.reference.com/browse/pledge>.
+
    [RFC6690]  Shelby, Z., "Constrained RESTful Environments (CoRE) Link
               Format", RFC 6690, DOI 10.17487/RFC6690, August 2012,
               <https://www.rfc-editor.org/info/rfc6690>.
 
    [RFC7030]  Pritikin, M., Ed., Yee, P., Ed., and D. Harkins, Ed.,
-              "Enrollment over Secure Transport", RFC 7030, DOI 10.17487
-              /RFC7030, October 2013, <https://www.rfc-editor.org/info/
-              rfc7030>.
-
-   [duckling]
-              Stajano, F. and R. Anderson, "The resurrecting duckling:
-              security issues for ad-hoc wireless networks", 1999,
-              <https://www.cl.cam.ac.uk/~fms27/papers/1999-StajanoAnd-
-              duckling.pdf>.
-
-   [pledge]   Dictionary.com, ., "Dictionary.com Unabridged", 2015,
-              <http://dictionary.reference.com/browse/pledge>.
+              "Enrollment over Secure Transport", RFC 7030,
+              DOI 10.17487/RFC7030, October 2013,
+              <https://www.rfc-editor.org/info/rfc7030>.
 
 Appendix A.  EST messages to EST-coaps
 
@@ -1223,40 +1323,52 @@ A.1.  enrollstatus
 
    A coaps enrollstatus message can be :
 
-    GET coaps://[192.0.2.1:8085]/est/es
+       GET coaps://[192.0.2.1:8085]/est/es
 
    The corresponding coap header fields are shown below.
 
 
 
-Richardson, et al.       Expires March 15, 2019                [Page 22]
+
+
+
+
+
+
+
+
+
+
+
+
+Richardson, et al.       Expires March 15, 2019                [Page 24]
 
 Internet-Draft            Constrained Vouchers            September 2018
 
 
-   Ver = 1
-   T = 0 (CON)
-   Code = 0x01 (0.01 is GET)
-   Options
-    Option1 (Uri-Host)
-      Option Delta = 0x3  (option nr = 3)
-      Option Length = 0x9
-      Option Value = 192.0.2.1
-    Option2 (Uri-Port)
-      Option Delta = 0x4  (option nr = 4+3=7)
-      Option Length = 0x4
-      Option Value = 8085
-    Option3 (Uri-Path)
-      Option Delta = 0x4   (option nr = 7+4= 11)
-      Option Length = 0x7
-      Option Value = /est/es
-   Payload = [Empty]
+     Ver = 1
+     T = 0 (CON)
+     Code = 0x01 (0.01 is GET)
+     Options
+      Option1 (Uri-Host)
+        Option Delta = 0x3  (option nr = 3)
+        Option Length = 0x9
+        Option Value = 192.0.2.1
+      Option2 (Uri-Port)
+        Option Delta = 0x4  (option nr = 4+3=7)
+        Option Length = 0x4
+        Option Value = 8085
+      Option3 (Uri-Path)
+        Option Delta = 0x4   (option nr = 7+4= 11)
+        Option Length = 0x7
+        Option Value = /est/es
+     Payload = [Empty]
 
    A 2.05 Content response with an unsigned JSON voucher (ct=50) will
    then be:
 
-   2.05 Content (Content-Format: application/json)
-     {payload}
+      2.05 Content (Content-Format: application/json)
+        {payload}
 
    With CoAP fields and payload:
 
@@ -1276,7 +1388,7 @@ A.2.  voucher_status
 
    A coaps voucher_status message can be :
 
-   GET coaps://[2001:db8::2:1]:61616]/est/vs
+      GET coaps://[2001:db8::2:1]:61616]/est/vs
 
    A 2.05 Content response with a non signed CBOR voucher (ct=60) will
    then be:
@@ -1285,14 +1397,14 @@ A.2.  voucher_status
 
 
 
-Richardson, et al.       Expires March 15, 2019                [Page 23]
+Richardson, et al.       Expires March 15, 2019                [Page 25]
 
 Internet-Draft            Constrained Vouchers            September 2018
 
 
-    2.05 Content (Content-Format: application/cbor)
-    Payload =
-    [EDNOTE: put here voucher payload ]
+       2.05 Content (Content-Format: application/cbor)
+       Payload =
+       [EDNOTE: put here voucher payload ]
 
 A.3.  requestvoucher
 
@@ -1304,44 +1416,44 @@ A.3.1.  signed requestvoucher
 
    A coaps signed requestvoucher message from RA to MASA can be :
 
-    POST coaps://[2001:db8::2:1]:61616]/est/rv
+       POST coaps://[2001:db8::2:1]:61616]/est/rv
 
    A 2.04 Changed response returning CBOR voucher signed with a cms
    structure(ct=TBD2) will then be:
 
-    2.04 Changed (Content-Format: application/voucher-cms+cbor)
-    Payload =
-    [EDNOTE: put here encrypted voucher payload ]
+       2.04 Changed (Content-Format: application/voucher-cms+cbor)
+       Payload =
+       [EDNOTE: put here encrypted voucher payload ]
 
 A.3.2.  unsigned requestvoucher
 
    A coaps unsigned requestvoucher message from pledge to Registrar can
    be :
 
-    POST coaps://[2001:db8::2:1]:61616]/est/rv
+       POST coaps://[2001:db8::2:1]:61616]/est/rv
 
    A 2.04 Changed response returning CBOR voucher (ct=60) will then be:
 
-    2.04 Changed (Content-Format: application/cbor)
-    Payload =
-    [EDNOTE: put here encrypted voucher payload ]
+       2.04 Changed (Content-Format: application/cbor)
+       Payload =
+       [EDNOTE: put here encrypted voucher payload ]
 
 A.4.  requestauditing
 
    A coaps requestauditing message can be :
 
-    GET coaps://[2001:db8::2:1]:61616]/est/ra
+       GET coaps://[2001:db8::2:1]:61616]/est/ra
 
    A 2.05 Content response returning a COSE_Sign1 object (ct=TBD3) will
    then be:
 
-    2.05 Content (Content-Format: application/voucher-cose+cbor)
-    Payload =
-    [EDNOTE: put here COSE_Sign1 voucher payload ]
+       2.05 Content (Content-Format: application/voucher-cose+cbor)
+       Payload =
+       [EDNOTE: put here COSE_Sign1 voucher payload ]
 
 
 
-Richardson, et al.       Expires March 15, 2019                [Page 24]
+Richardson, et al.       Expires March 15, 2019                [Page 26]
 
 Internet-Draft            Constrained Vouchers            September 2018
 
@@ -1397,4 +1509,4 @@ Authors' Addresses
 
 
 
-Richardson, et al.       Expires March 15, 2019                [Page 25]
+Richardson, et al.       Expires March 15, 2019                [Page 27]
