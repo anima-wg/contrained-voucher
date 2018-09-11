@@ -163,6 +163,18 @@ This document defines both a constrained voucher and a constrained voucher-reque
 They are presented in the order voucher-request, followed by voucher response
 as this is the time order that they occur.
 
+This document defines both CMS-signed voucher requests and responses, and
+COSE signed voucher requests and responses.
+The use of CMS signatures implies the use of PKIX format certificates.
+The pinned-domain-cert present in such a voucher, is the certificate of the Registrar.
+
+The use of COSE signatures permits the use of both PKIX format certificates,
+and also raw public keys (RPK).  When RPKs are used, the voucher produced by
+the MASA pins the raw public key of the Registrar: the
+pinned-domain-subject-public-key-info in such a voucher, is the raw public
+key of the Registrar.
+This is described in the YANG definition for the constrained voucher.
+
 # Discovery and URI
 
 This section describes the BRSKI extensions to EST-coaps
@@ -584,7 +596,7 @@ We are grateful for the suggestions done by Esko Dijk.
 # Changelog
 
 -02
- 
+
     Example of requestvoucher with unsigned appllication/cbor is added
     attributes of voucher "refined" to optional
     CBOR serialization of vouchers improved
