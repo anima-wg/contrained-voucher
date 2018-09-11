@@ -1,0 +1,17 @@
+           
+      SID Assigned to
+--------- -------------------------------------------------- 
+  1001154 data /ietf-constrained-voucher-request:voucher
+  1001155 data .../assertion
+  1001156 data .../created-on
+  1001157 data .../domain-cert-revocation-checks
+  1001158 data .../expires-on
+  1001159 data .../idevid-issuer
+  1001160 data .../last-renewal-date
+  1001161 data /ietf-constrained-voucher-request:voucher/nonce
+  1001162 data .../pinned-domain-cert
+  1001163 data .../prior-signed-voucher-request
+  1001164 data .../proximity-registrar-cert
+  1001165 data .../proximity-registrar-subject-public-key-info
+  1001166 data .../serial-number
+           

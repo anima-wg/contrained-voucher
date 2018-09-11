@@ -1,81 +1,86 @@
 {
   "assignment-ranges": [
     {
-      "entry-point": 1001100,
+      "entry-point": 1001100, 
       "size": 50
     }
-  ],
-  "module-name": "ietf-constrained-voucher",
-  "module-revision": "2017-12-11",
+  ], 
+  "module-name": "ietf-constrained-voucher", 
+  "module-revision": "2018-09-01", 
   "items": [
     {
-      "identifier": "ietf-constrained-voucher",
+      "namespace": "module", 
+      "identifier": "ietf-constrained-voucher", 
       "sid": 1001100
-    },
+    }, 
     {
-      "identifier": "ietf-restconf",
+      "namespace": "module", 
+      "identifier": "ietf-restconf", 
       "sid": 1001101
-    },
+    }, 
     {
-      "identifier": "ietf-voucher",
+      "namespace": "module", 
+      "identifier": "ietf-voucher", 
       "sid": 1001102
-    },
+    }, 
     {
-      "identifier": "ietf-yang-types",
+      "namespace": "module", 
+      "identifier": "ietf-yang-types", 
       "sid": 1001103
-    },
+    }, 
     {
-      "identifier": "/ietf-constrained-voucher:voucher-constrained-grouping/ietf-constrained-voucher:voucher",
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher:voucher", 
       "sid": 1001104
-    },
+    }, 
     {
-      "namespace": "data",
-      "identifier": "/ietf-constrained-voucher:voucher-constrained-grouping/ietf-constrained-voucher:voucher/assertion",
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher:voucher/assertion", 
       "sid": 1001105
-    },
+    }, 
     {
-      "namespace": "data",
-      "identifier": "/ietf-constrained-voucher:voucher-constrained-grouping/ietf-constrained-voucher:voucher/created-on",
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher:voucher/created-on", 
       "sid": 1001106
-    },
+    }, 
     {
-      "namespace": "data",
-      "identifier": "/ietf-constrained-voucher:voucher-constrained-grouping/ietf-constrained-voucher:voucher/domain-cert-revocation-checks",
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher:voucher/domain-cert-revocation-checks", 
       "sid": 1001107
-    },
+    }, 
     {
-      "namespace": "data",
-      "identifier": "/ietf-constrained-voucher:voucher-constrained-grouping/ietf-constrained-voucher:voucher/expires-on",
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher:voucher/expires-on", 
       "sid": 1001108
-    },
+    }, 
     {
-      "namespace": "data",
-      "identifier": "/ietf-constrained-voucher:voucher-constrained-grouping/ietf-constrained-voucher:voucher/idevid-issuer",
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher:voucher/idevid-issuer", 
       "sid": 1001109
-    },
+    }, 
     {
-      "namespace": "data",
-      "identifier": "/ietf-constrained-voucher:voucher-constrained-grouping/ietf-constrained-voucher:voucher/last-renewal-date",
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher:voucher/last-renewal-date", 
       "sid": 1001110
-    },
+    }, 
     {
-      "namespace": "data",
-      "identifier": "/ietf-constrained-voucher:voucher-constrained-grouping/ietf-constrained-voucher:voucher/nonce",
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher:voucher/nonce", 
       "sid": 1001111
-    },
+    }, 
     {
-      "namespace": "data",
-      "identifier": "/ietf-constrained-voucher:voucher-constrained-grouping/ietf-constrained-voucher:voucher/pinned-domain-cert",
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher:voucher/pinned-domain-cert", 
       "sid": 1001112
-    },
+    }, 
     {
-      "namespace": "data",
-      "identifier": "/ietf-constrained-voucher:voucher-constrained-grouping/ietf-constrained-voucher:voucher/pinned-domain-subject-public-key-info",
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher:voucher/pinned-domain-subject-public-key-info", 
       "sid": 1001113
-    },
+    }, 
     {
-      "namespace": "data",
-      "identifier": "/ietf-constrained-voucher:voucher-constrained-grouping/ietf-constrained-voucher:voucher/serial-number",
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher:voucher/serial-number", 
       "sid": 1001114
     }
   ]

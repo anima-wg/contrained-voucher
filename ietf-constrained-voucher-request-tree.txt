@@ -2,14 +2,14 @@ module: ietf-constrained-voucher-request
 
   grouping voucher-request-constrained-grouping
     +-- voucher
-       +-- created-on
+       +-- created-on?
        |       yang:date-and-time
        +-- expires-on?
        |       yang:date-and-time
        +-- assertion                                      enumeration
        +-- serial-number                                  string
        +-- idevid-issuer?                                 binary
-       +-- pinned-domain-cert                             binary
+       +-- pinned-domain-cert?                            binary
        +-- domain-cert-revocation-checks?                 boolean
        +-- nonce?                                         binary
        +-- last-renewal-date?

@@ -1,0 +1,15 @@
+
+      SID Assigned to
+--------- --------------------------------------------------
+  1001104 data .../voucher
+  1001105 data .../assertion
+  1001106 data .../created-on
+  1001107 data .../domain-cert-revocation-checks
+  1001108 data .../expires-on
+  1001109 data .../idevid-issuer
+  1001110 data .../last-renewal-date
+  1001111 data .../nonce
+  1001112 data .../pinned-domain-cert
+  1001113 data .../pinned-domain-subject-public-key-info
+  1001114 data .../serial-number
+
