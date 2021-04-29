@@ -271,7 +271,7 @@ No further discovery of hosts or port numbers is required, but a pledge that can
 
 However, a Pledge that only supports the EST-coaps enrollment method SHOULD NOT use discovery for BRSKI resources, since it is more efficient to just try the supported enrollment method via the well-known BRSKI/EST-coaps resources, and it avoids the Pledge having to do complex CoRE Link Format parsing.
 
-In order to support this, the Registrar MUST support all of the EST resources at their default "well-known" locations (on the port number discovered) as well as any shorter form that the might also be supported.
+In order to support this, the Registrar MUST support all of the EST resources at their default "well-known" locations on the port number discovered.
 
 A Registrar SHOULD host any discoverable BRSKI resources on the same (UDP) server port that the Pledge's DTLS connection is using.
 This avoids the Pledge having to reconnect using DTLS, in order to access these resources.
