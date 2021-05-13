@@ -262,8 +262,15 @@ The MASA needs to support all formats that the Pledge, produced by that manufact
 
 ## Extensions to BRSKI {#brski-extensions}
 
-A Pledge that only supports the EST-coaps enrollment method SHOULD NOT use discovery for BRSKI resources, since it is more efficient to just try
-the supported enrollment method via the well-known BRSKI/EST-coaps resources, and it avoids the Pledge having to do complex CoRE Link Format parsing.
+The Pledge discovers an IP address and port number that connects to the Registrar (possibly via a Join Proxy), and it establishes a DTLS connection.
+
+No further discovery of hosts or port numbers is required, but a pledge that can do more than one kind of enrollment (future work offers protocols other than {{EST-coaps}}), may need to use CoAP Discovery to determine what other protocols are available.
+This discovery operation SHOULD be done over the a DTLS connection, using whatever join proxy connection that was provided.
+
+However, a Pledge that only supports the EST-coaps enrollment method SHOULD NOT use discovery for BRSKI resources, since it is more efficient to just try the supported enrollment method via the well-known BRSKI/EST-coaps resources, and it avoids the Pledge having to do complex CoRE Link Format parsing.
+
+In order to support this, the Registrar MUST support all of the EST resources at their default "well-known" locations on the port number discovered.
+
 A Registrar SHOULD host any discoverable BRSKI resources on the same (UDP) server port that the Pledge's DTLS connection is using.
 This avoids the Pledge having to reconnect using DTLS, in order to access these resources.
 
