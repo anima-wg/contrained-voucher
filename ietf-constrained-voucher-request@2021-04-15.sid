@@ -1,101 +1,176 @@
 {
   "assignment-ranges": [
     {
-      "entry-point": 2500,
+      "entry-point": 2500, 
       "size": 50
     }
-  ],
-  "module-name": "ietf-constrained-voucher-request",
-  "module-revision": "2020-03-25",
+  ], 
+  "module-name": "ietf-constrained-voucher-request", 
+  "module-revision": "2021-04-15", 
   "items": [
     {
-      "namespace": "module",
-      "identifier": "ietf-constrained-voucher-request",
-      "sid": 2500
-    },
+      "namespace": "module", 
+      "identifier": "ietf-constrained-voucher-request", 
+      "sid": 2518
+    }, 
     {
-      "namespace": "module",
-      "identifier": "ietf-restconf",
+      "namespace": "module", 
+      "identifier": "ietf-restconf", 
       "sid": 2515
-    },
+    }, 
     {
-      "namespace": "module",
-      "identifier": "ietf-voucher",
+      "namespace": "module", 
+      "identifier": "ietf-voucher", 
       "sid": 2516
-    },
+    }, 
     {
-      "namespace": "module",
-      "identifier": "ietf-yang-types",
+      "namespace": "module", 
+      "identifier": "ietf-voucher-request-constrained", 
+      "sid": 2500
+    }, 
+    {
+      "namespace": "module", 
+      "identifier": "ietf-yang-types", 
       "sid": 2517
-    },
+    }, 
     {
-      "namespace": "data",
-      "identifier": "/ietf-constrained-voucher-request:voucher",
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher-request:voucher", 
+      "sid": 2519
+    }, 
+    {
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher-request:voucher/assertion", 
+      "sid": 2520
+    }, 
+    {
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher-request:voucher/created-on", 
+      "sid": 2521
+    }, 
+    {
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher-request:voucher/domain-cert-revocation-checks", 
+      "sid": 2522
+    }, 
+    {
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher-request:voucher/expires-on", 
+      "sid": 2523
+    }, 
+    {
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher-request:voucher/idevid-issuer", 
+      "sid": 2524
+    }, 
+    {
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher-request:voucher/last-renewal-date", 
+      "sid": 2525
+    }, 
+    {
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher-request:voucher/nonce", 
+      "sid": 2526
+    }, 
+    {
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher-request:voucher/pinned-domain-cert", 
+      "sid": 2527
+    }, 
+    {
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher-request:voucher/prior-signed-voucher-request", 
+      "sid": 2528
+    }, 
+    {
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher-request:voucher/proximity-registrar-cert", 
+      "sid": 2529
+    }, 
+    {
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher-request:voucher/proximity-registrar-pubk", 
+      "sid": 2530
+    }, 
+    {
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher-request:voucher/proximity-registrar-pubk-sha256", 
+      "sid": 2531
+    }, 
+    {
+      "namespace": "data", 
+      "identifier": "/ietf-constrained-voucher-request:voucher/serial-number", 
+      "sid": 2532
+    }, 
+    {
+      "namespace": "data", 
+      "identifier": "/ietf-voucher-request-constrained:voucher", 
       "sid": 2501
-    },
+    }, 
     {
-      "namespace": "data",
-      "identifier": "/ietf-constrained-voucher-request:voucher/assertion",
+      "namespace": "data", 
+      "identifier": "/ietf-voucher-request-constrained:voucher/assertion", 
       "sid": 2502
-    },
+    }, 
     {
-      "namespace": "data",
-      "identifier": "/ietf-constrained-voucher-request:voucher/created-on",
+      "namespace": "data", 
+      "identifier": "/ietf-voucher-request-constrained:voucher/created-on", 
       "sid": 2503
-    },
+    }, 
     {
-      "namespace": "data",
-      "identifier": "/ietf-constrained-voucher-request:voucher/domain-cert-revocation-checks",
+      "namespace": "data", 
+      "identifier": "/ietf-voucher-request-constrained:voucher/domain-cert-revocation-checks", 
       "sid": 2504
-    },
+    }, 
     {
-      "namespace": "data",
-      "identifier": "/ietf-constrained-voucher-request:voucher/expires-on",
+      "namespace": "data", 
+      "identifier": "/ietf-voucher-request-constrained:voucher/expires-on", 
       "sid": 2505
-    },
+    }, 
     {
-      "namespace": "data",
-      "identifier": "/ietf-constrained-voucher-request:voucher/idevid-issuer",
+      "namespace": "data", 
+      "identifier": "/ietf-voucher-request-constrained:voucher/idevid-issuer", 
       "sid": 2506
-    },
+    }, 
     {
-      "namespace": "data",
-      "identifier": "/ietf-constrained-voucher-request:voucher/last-renewal-date",
+      "namespace": "data", 
+      "identifier": "/ietf-voucher-request-constrained:voucher/last-renewal-date", 
       "sid": 2507
-    },
+    }, 
     {
-      "namespace": "data",
-      "identifier": "/ietf-constrained-voucher-request:voucher/nonce",
+      "namespace": "data", 
+      "identifier": "/ietf-voucher-request-constrained:voucher/nonce", 
       "sid": 2508
-    },
+    }, 
     {
-      "namespace": "data",
-      "identifier": "/ietf-constrained-voucher-request:voucher/pinned-domain-cert",
+      "namespace": "data", 
+      "identifier": "/ietf-voucher-request-constrained:voucher/pinned-domain-cert", 
       "sid": 2509
-    },
+    }, 
     {
-      "namespace": "data",
-      "identifier": "/ietf-constrained-voucher-request:voucher/prior-signed-voucher-request",
+      "namespace": "data", 
+      "identifier": "/ietf-voucher-request-constrained:voucher/prior-signed-voucher-request", 
       "sid": 2510
-    },
+    }, 
     {
-      "namespace": "data",
-      "identifier": "/ietf-constrained-voucher-request:voucher/proximity-registrar-cert",
+      "namespace": "data", 
+      "identifier": "/ietf-voucher-request-constrained:voucher/proximity-registrar-cert", 
       "sid": 2511
-    },
+    }, 
     {
-      "namespace": "data",
-      "identifier": "/ietf-constrained-voucher-request:voucher/proximity-registrar-pubk-sha256",
-      "sid": 2512
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-constrained-voucher-request:voucher/proximity-registrar-pubk",
+      "namespace": "data", 
+      "identifier": "/ietf-voucher-request-constrained:voucher/proximity-registrar-pubk", 
       "sid": 2513
-    },
+    }, 
     {
-      "namespace": "data",
-      "identifier": "/ietf-constrained-voucher-request:voucher/serial-number",
+      "namespace": "data", 
+      "identifier": "/ietf-voucher-request-constrained:voucher/proximity-registrar-pubk-sha256", 
+      "sid": 2512
+    }, 
+    {
+      "namespace": "data", 
+      "identifier": "/ietf-voucher-request-constrained:voucher/serial-number", 
       "sid": 2514
     }
   ]

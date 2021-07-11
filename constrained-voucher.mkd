@@ -437,17 +437,17 @@ prior-signed-voucher-request is only used between the Registrar and the MASA.
 proximity-registrar-pubk or proximity-registrar-pubk-sha256 optionally replaces proximity-registrar-cert
 for the most constrained cases where RPK is used by the Pledge.
 
-INSERT_FIG_FROM_FILE ietf-constrained-voucher-request-tree.txt END
+INSERT_FIG_FROM_FILE ietf-voucher-request-constrained-tree.txt END
 
 ### SID values
 
-INSERT_FIG_FROM_FILE ietf-constrained-voucher-request-sid.txt END
+INSERT_FIG_FROM_FILE ietf-voucher-request-constrained-sid.txt END
 
 ### YANG Module {#yang-voucher-request}
 
 In the constrained-voucher-request YANG module, the voucher is "augmented" within the "used" grouping statement such that one continuous set of SID values is generated for the constrained-voucher-request module name, all voucher attributes, and the constrained-voucher-request attributes. Two attributes of the voucher are "refined" to be optional.
 
-INSERT_FIG_FROM_FILE ietf-constrained-voucher-request@DATE.yang END
+INSERT_FIG_FROM_FILE ietf-voucher-request-constrained@DATE.yang END
 
 ### Example voucher request artifact {#example2}
 
@@ -467,11 +467,11 @@ consider to be its owner.
 The following diagram is largely a duplicate of the contents of {{RFC8366}},
 with only the addition of the fields pinned-domain-pubk and pinned-domain-pubk-sha256.
 
-INSERT_FIG_FROM_FILE ietf-constrained-voucher-tree.txt END
+INSERT_FIG_FROM_FILE ietf-voucher-constrained-tree.txt END
 
 ### SID values
 
-INSERT_FIG_FROM_FILE ietf-constrained-voucher-sid.txt END
+INSERT_FIG_FROM_FILE ietf-voucher-constrained-sid.txt END
 
 
 ### YANG Module {#yang-voucher}
