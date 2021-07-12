@@ -1,0 +1,92 @@
+{
+  "assignment-ranges": [
+    {
+      "entry-point": 2450,
+      "size": 50
+    }
+  ],
+  "module-name": "ietf-voucher-constrained",
+  "module-revision": "2020-03-25",
+  "items": [
+    {
+      "namespace": "module",
+      "identifier": "ietf-voucher-constrained",
+      "sid": 2450
+    },
+    {
+      "namespace": "module",
+      "identifier": "ietf-restconf",
+      "sid": 2463
+    },
+    {
+      "namespace": "module",
+      "identifier": "ietf-voucher",
+      "sid": 2464
+    },
+    {
+      "namespace": "module",
+      "identifier": "ietf-yang-types",
+      "sid": 2465
+    },
+    {
+      "namespace": "data",
+      "identifier": "/ietf-voucher-constrained:voucher",
+      "sid": 2451
+    },
+    {
+      "namespace": "data",
+      "identifier": "/ietf-voucher-constrained:voucher/assertion",
+      "sid": 2452
+    },
+    {
+      "namespace": "data",
+      "identifier": "/ietf-voucher-constrained:voucher/created-on",
+      "sid": 2453
+    },
+    {
+      "namespace": "data",
+      "identifier": "/ietf-voucher-constrained:voucher/domain-cert-revocation-checks",
+      "sid": 2454
+    },
+    {
+      "namespace": "data",
+      "identifier": "/ietf-voucher-constrained:voucher/expires-on",
+      "sid": 2455
+    },
+    {
+      "namespace": "data",
+      "identifier": "/ietf-voucher-constrained:voucher/idevid-issuer",
+      "sid": 2456
+    },
+    {
+      "namespace": "data",
+      "identifier": "/ietf-voucher-constrained:voucher/last-renewal-date",
+      "sid": 2457
+    },
+    {
+      "namespace": "data",
+      "identifier": "/ietf-voucher-constrained:voucher/nonce",
+      "sid": 2458
+    },
+    {
+      "namespace": "data",
+      "identifier": "/ietf-voucher-constrained:voucher/pinned-domain-cert",
+      "sid": 2459
+    },
+    {
+      "namespace": "data",
+      "identifier": "/ietf-voucher-constrained:voucher/pinned-domain-pubk",
+      "sid": 2460
+    },
+    {
+      "namespace": "data",
+      "identifier": "/ietf-voucher-constrained:voucher/pinned-domain-pubk-sha256",
+      "sid": 2461
+    },
+    {
+      "namespace": "data",
+      "identifier": "/ietf-voucher-constrained:voucher/serial-number",
+      "sid": 2462
+    }
+  ]
+}

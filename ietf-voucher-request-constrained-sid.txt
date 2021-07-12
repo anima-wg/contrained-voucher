@@ -1,0 +1,34 @@
+           
+      SID Assigned to
+--------- -------------------------------------------------- 
+     2519 data /ietf-constrained-voucher-request:voucher
+     2520 data .../assertion
+     2521 data .../created-on
+     2522 data .../domain-cert-revocation-checks
+     2523 data .../expires-on
+     2524 data .../idevid-issuer
+     2525 data .../last-renewal-date
+     2526 data /ietf-constrained-voucher-request:voucher/nonce
+     2527 data .../pinned-domain-cert
+     2528 data .../prior-signed-voucher-request
+     2529 data .../proximity-registrar-cert
+     2530 data .../proximity-registrar-pubk
+     2531 data .../proximity-registrar-pubk-sha256
+     2532 data .../serial-number
+     2501 data /ietf-voucher-request-constrained:voucher
+     2502 data .../assertion
+     2503 data .../created-on
+     2504 data .../domain-cert-revocation-checks
+     2505 data .../expires-on
+     2506 data .../idevid-issuer
+     2507 data .../last-renewal-date
+     2508 data /ietf-voucher-request-constrained:voucher/nonce
+     2509 data .../pinned-domain-cert
+     2510 data .../prior-signed-voucher-request
+     2511 data .../proximity-registrar-cert
+     2513 data .../proximity-registrar-pubk
+     2512 data .../proximity-registrar-pubk-sha256
+     2514 data .../serial-number
+           
+ WARNING, obsolete definitions
+           

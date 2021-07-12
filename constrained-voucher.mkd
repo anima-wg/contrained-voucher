@@ -119,10 +119,10 @@ The use of Raw Public Keys instead of X.509 certificates for security operations
 
 Secure enrollment of new nodes into constrained networks with constrained nodes
 presents unique challenges. There are network bandwidth and code size issues to contend with.
-A solution for autonomous enrollment such as BRSKI {{-BRSKI}} may be too large in terms of
+A solution for autonomous enrollment such as BRSKI {{BRSKI}} may be too large in terms of
 code size or bandwidth required.
 
-Therefore, this document defines a constrained version of the voucher artifact {{RFC8366}}, along with a constrained version of BRSKI {{RFC8995}} that makes use of the constrained CoAP-based version of EST, EST-coaps {{I-D.ietf-ace-coap-est}} rather than EST over HTTPS {{RFC7030}}.
+Therefore, this document defines a constrained version of the voucher artifact {{RFC8366}}, along with a constrained version of {{BRSKI}} that makes use of the constrained CoAP-based version of EST, EST-coaps {{I-D.ietf-ace-coap-est}} rather than EST over HTTPS {{RFC7030}}.
 
 While the {{RFC8366}} voucher is by default serialized to JSON with a signature in CMS,
 this document defines a new voucher serialization to CBOR ({{RFC7049}}) with a signature in COSE {{I-D.ietf-cose-rfc8152bis-struct}}.
@@ -130,8 +130,8 @@ This COSE-signed CBOR-encoded voucher can be transported using secured CoAP or H
 The CoAP connection (between Pledge and Registrar) is to be protected by either OSCORE+EDHOC or DTLS (CoAPS).
 The HTTP connection (between Registrar and MASA) is to be protected using TLS (HTTPS).
 
-This document specifies a constrained voucher-request artifact based on Section 3 of {{-BRSKI}}, and
-voucher(-request) transport over CoAP based on Section 3 of {{-BRSKI}} and on {{I-D.ietf-ace-coap-est}}.
+This document specifies a constrained voucher-request artifact based on Section 3 of {{BRSKI}}, and
+voucher(-request) transport over CoAP based on Section 3 of {{BRSKI}} and on {{I-D.ietf-ace-coap-est}}.
 
 The CBOR definitions for the constrained voucher format are defined using the mechanism described in {{I-D.ietf-core-yang-cbor}} using the SID mechanism explained in {{I-D.ietf-core-sid}}.
 As the tooling to convert YANG documents into a list of SID keys is still in its infancy, the table of SID values presented here MUST be considered normative rather than the output of the pyang tool.
@@ -145,7 +145,7 @@ The following terms are defined in {{RFC8366}}, and are used identically as in t
 artifact, domain, imprint, Join Registrar/Coordinator (JRC), Manufacturer Authorized Signing Authority
 (MASA), Pledge, Registrar, Trust of First Use (TOFU), and Voucher.
 
-The following terms from {{-BRSKI}} are used identically as in that document:
+The following terms from {{BRSKI}} are used identically as in that document:
 Domain CA, enrollment, IDevID, Join Proxy, LDevID, manufacturer, nonced, nonceless, PKIX.
 
 # Requirements Language {#reqlang}
@@ -163,7 +163,7 @@ protocol between the Registrar and the MASA.
 Time-based vouchers are supported in this definition, but given that constrained devices are extremely unlikely to have accurate time, their use will be uncommon.
 Most Pledges using these constrained vouchers will be online during enrollment and will use live nonces to provide anti-replay protection rather than expiry times.
 
-{{RFC8366}} defines the voucher artifact, while the Voucher Request artifact was defined in {{-BRSKI}}.
+{{RFC8366}} defines the voucher artifact, while the Voucher Request artifact was defined in {{BRSKI}}.
 This document defines both a constrained voucher and a constrained voucher-request.
 They are presented in the order "voucher-request", followed by a "voucher" response as this is
 the order that they occur in the protocol.
@@ -208,7 +208,7 @@ the first two using a discovered short path name and the last one using the well
 
 Similarly the constrained BRSKI server URIs differ from the BRSKI URIs by replacing the scheme https by coaps and by specifying shorter resource path names. Below are some examples;
 the first two using a discovered short path name and the last one using the well-known URI prefix which requires no discovery.
-This is the same "/.well-known/brski" prefix as defined in {{-BRSKI}} Section 5.
+This is the same "/.well-known/brski" prefix as defined in {{BRSKI}} Section 5.
 
 ~~~~
   coaps://server.example.com/brski/<short-name>
@@ -324,9 +324,9 @@ that only the default Content-Format of 281 "application/pkcs7-mime;smime-type=c
 
 # BRSKI-MASA Protocol {#brski-masa}
 
-{{-BRSKI}} section 5.4 describes a connection between the Registrar and the MASA as being a normal TLS connection using HTTPS.
+{{BRSKI}} section 5.4 describes a connection between the Registrar and the MASA as being a normal TLS connection using HTTPS.
 This document does not change that. The Registrar MAY use the new format "application/voucher-cose+cbor" in its voucher request to MASA, or the existing BRSKI
-format "application/voucher-cms+json" defined by {{-BRSKI}}. The MASA MUST support both formats. The Registrar indicates the voucher
+format "application/voucher-cms+json" defined by {{BRSKI}}. The MASA MUST support both formats. The Registrar indicates the voucher
 format it wants to receive from MASA using the HTTP Accept header.
 
 At the moment of writing the creation of coaps based MASAs is deemed unrealistic.
@@ -352,7 +352,7 @@ This section describes how the owner's identity is determined and how it is enco
 
 ## Registrar Identity Selection and Encoding
 
-Section 5.5 of {{-BRSKI}} describes BRSKI policies for selection of the owner identity. It indicates some of the flexibility that is possible for the Registrar.
+Section 5.5 of {{BRSKI}} describes BRSKI policies for selection of the owner identity. It indicates some of the flexibility that is possible for the Registrar.
 The recommendation made there is for the Registrar to include only certificates in the voucher request (CMS) signing structure which participate in the certificate chain that is to be pinned.
 
 The MASA is expected to evaluate the certificates included by the Registrar in its voucher request, forming them into a chain with the Registrar's (signing) identity on one end. Then, it pins a certificate selected from the chain.
@@ -371,7 +371,7 @@ The Registrar MUST place all the certificates for the chain in an "x5bag" attrib
 
 The MASA, having assembled and verified the chain in the signing structure of the voucher request, will now need to select a certificate to pin.
 (For the case that only the Registrar's End-Entity certificate is included, only this certificate can be selected and this section does not apply.)
-The BRSKI policy for pinning by the MASA as described in Section 5.5.2 of {{-BRSKI}} leaves much flexibility to the manufacturer. The present
+The BRSKI policy for pinning by the MASA as described in Section 5.5.2 of {{BRSKI}} leaves much flexibility to the manufacturer. The present
 document adds the following rules to the MASA pinning policy to reduce the network load:
 
 1. for a voucher containing a nonce, it SHOULD select the most specific (lowest-level) CA certificate in the chain.
@@ -382,7 +382,7 @@ benefit to pin a higher-level CA. By pinning the most specific CA the constraine
 rationale for pinning a CA instead of the Registrar's End-Entity certificate directly is the following benefit on constrained networks: the pinned certificate in the voucher
 can in common cases be re-used as a Domain CA trust anchor during the EST enrollment and during the operational phase that follows after EST enrollment, as explained in {{brski-extensions-pledge}}.
 
-The rationale for 2. follows from the flexible BRSKI trust model for, and purpose of, nonceless vouchers (Sections 5.5.* and 7.4.1 of {{-BRSKI}}).
+The rationale for 2. follows from the flexible BRSKI trust model for, and purpose of, nonceless vouchers (Sections 5.5.* and 7.4.1 of {{BRSKI}}).
 
 Using the previous example of a domain with a two-level certification authority, the most specific CA ("Sub-CA") is the identity that is pinned by MASA in a nonced voucher.
 A Registrar that wished to have only the Registrar's End-Entity certificate pinned would omit the "domain CA" and "Sub-CA" certificates from the voucher-request.
@@ -437,17 +437,17 @@ prior-signed-voucher-request is only used between the Registrar and the MASA.
 proximity-registrar-pubk or proximity-registrar-pubk-sha256 optionally replaces proximity-registrar-cert
 for the most constrained cases where RPK is used by the Pledge.
 
-INSERT_FIG_FROM_FILE ietf-constrained-voucher-request-tree.txt END
+INSERT_FIG_FROM_FILE ietf-voucher-request-constrained-tree.txt END
 
 ### SID values
 
-INSERT_FIG_FROM_FILE ietf-constrained-voucher-request-sid.txt END
+INSERT_FIG_FROM_FILE ietf-voucher-request-constrained-sid.txt END
 
 ### YANG Module {#yang-voucher-request}
 
 In the constrained-voucher-request YANG module, the voucher is "augmented" within the "used" grouping statement such that one continuous set of SID values is generated for the constrained-voucher-request module name, all voucher attributes, and the constrained-voucher-request attributes. Two attributes of the voucher are "refined" to be optional.
 
-INSERT_FIG_FROM_FILE ietf-constrained-voucher-request@DATE.yang END
+INSERT_FIG_FROM_FILE ietf-voucher-request-constrained@DATE.yang END
 
 ### Example voucher request artifact {#example2}
 
@@ -467,11 +467,11 @@ consider to be its owner.
 The following diagram is largely a duplicate of the contents of {{RFC8366}},
 with only the addition of the fields pinned-domain-pubk and pinned-domain-pubk-sha256.
 
-INSERT_FIG_FROM_FILE ietf-constrained-voucher-tree.txt END
+INSERT_FIG_FROM_FILE ietf-voucher-constrained-tree.txt END
 
 ### SID values
 
-INSERT_FIG_FROM_FILE ietf-constrained-voucher-sid.txt END
+INSERT_FIG_FROM_FILE ietf-voucher-constrained-sid.txt END
 
 
 ### YANG Module {#yang-voucher}
@@ -536,7 +536,7 @@ The use of a raw public key (RPK) in the pinning process can significantly reduc
 
 ## The Registrar Trust Anchor
 
-When the Pledge first connects to the Registrar, the connection to the Registrar is provisional, as explained in section 5.6.2 of {{-BRSKI}}.
+When the Pledge first connects to the Registrar, the connection to the Registrar is provisional, as explained in section 5.6.2 of {{BRSKI}}.
 The Registrar provides its public key in a TLSServerCertificate, and the Pledge uses that to validate that integrity of the (D)TLS connection, but it does not validate the identity of
 the provided certificate.
 
@@ -560,7 +560,7 @@ As the format of the pubk field is identical to the TLS Certificate RawPublicKey
 ## The Voucher Response
 
 A returned voucher will have a pinned-domain-subk field with the identical key as was found in the proximity-registrar-pubk field above, as well as in the TLS connection.
-Validation of this key by the pledge is what takes the DTLS connection out of the provisional state (see {{-BRSKI}} section 5.6.2).
+Validation of this key by the pledge is what takes the DTLS connection out of the provisional state (see {{Section 5.6.2 of BRSKI }}).
 
 The voucher needs to be validated first.
 The Pledge needs to have a public key to validate the signature from the MASA on the voucher.
